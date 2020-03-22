@@ -19,7 +19,7 @@ class Sample:
         return self.a.size
 
     def length(self):
-        return self.a.size / fs
+        return self.a.size / self.fs
 
     def width(self):
         return self.a.dtype.alignment
@@ -28,7 +28,7 @@ class Sample:
         return 1 # TODO: mono for now
 
     def extract(self, start, end):
-        return Sample(self.a[start*fs: end*fs], fs)
+        return Sample(self.a[int(start*self.fs): int(end*self.fs)], self.fs)
 
     def chunkify(self, chunk_size):
         # assume mono
