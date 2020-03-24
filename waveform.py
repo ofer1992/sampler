@@ -20,7 +20,7 @@ class WaveForm:
         self.line.getPos()
 
     def plot(self, sample):
-        time = np.linspace(0, sample.length(), num=sample.num_samples())
+        time = np.linspace(0, sample.length(), num=sample.nframes())
         curve = self.widget.plot(time, sample.a, autoDownsample=True)
         curve.curve.setClickable(True)
         curve.setDownsampling(ds=256, auto=True, method='peak')
